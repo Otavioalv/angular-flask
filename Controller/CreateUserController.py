@@ -6,6 +6,7 @@ class CreateUserController:
         try:
             birthday, name = valuesResponse["birthday"], valuesResponse["name"];
             
+            
             sql = "INSERT INTO user (name, birthday) value(%s, %s)";
             values = (name, birthday);
             
