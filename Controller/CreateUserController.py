@@ -1,10 +1,11 @@
 from flask import jsonify;
 from module.db import cursor, connection;
+
 from time import sleep;
 
 class CreateUserController:
     def execute(valuesResponse):
-        # sleep(5);
+        sleep(1);
         
         try:
             birthday, name = valuesResponse["birthday"], valuesResponse["name"];

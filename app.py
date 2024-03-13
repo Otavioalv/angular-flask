@@ -3,7 +3,7 @@ from flask_cors import CORS;
 from Controller import ListUsersController, CreateUserController, UpdateUserController, FindUserByIdController, DeleteUserController;
 
 app = Flask(__name__);
-CORS(app, origins='http://localhost:4200');
+CORS(app, origins='*');
 
 # CRUD  
 @app.route('/', methods=['GET'])
@@ -16,10 +16,6 @@ def index():
 def create_user():
     if request.method  == "POST":
         resp = request.get_json();
-        res = request.get_data();
-        
-        print(res);
-        
         result = CreateUserController.CreateUserController.execute(resp);
         return result;
 

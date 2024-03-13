@@ -2,8 +2,12 @@ from flask import jsonify;
 from Controller import FindUserByIdController
 from module.db import connection, cursor;
 
+from time import sleep;
+
 class DeleteUserController:
     def execute(id):
+        
+        sleep(1);
         
         message:str;
         

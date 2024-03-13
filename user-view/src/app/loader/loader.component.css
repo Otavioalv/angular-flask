@@ -1,0 +1,21 @@
+.loader {
+    --widht-loader: 50px;
+    --height-loader: 6px;
+    border-radius: 50%;
+    border: var(--height-loader) solid #ef4444;
+    border-left-color: transparent;
+    width: var(--widht-loader);
+    height: var(--widht-loader);
+    animation: spin 1s linear infinite;
+}
+    
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+    

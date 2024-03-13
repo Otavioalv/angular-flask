@@ -1,10 +1,14 @@
 from flask import jsonify;
 from module.db import connection, cursor;
 from helper.transformJSON import transformJSON;
+from time import sleep;
 
 
 class ListUsersController:
     def execute():
+        
+        sleep(1);
+        
         try: 
             sql = "SELECT id, name, birthday from user";
             cursor.execute(sql);

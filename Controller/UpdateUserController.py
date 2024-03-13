@@ -2,8 +2,12 @@ from flask import jsonify;
 from Controller import FindUserByIdController
 from module.db import connection, cursor;
 
+from time import sleep;
+
 class UpdateUserController:
     def execute(id, response):
+        
+        sleep(2);
         
         message:str;
         

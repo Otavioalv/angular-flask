@@ -25,5 +25,4 @@ except mysql.connector.Error as error:
     else:
         print(error);
 else: 
-    print("Elose??");
     cursor = connection.cursor()

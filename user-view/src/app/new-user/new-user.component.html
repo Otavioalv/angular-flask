@@ -1,0 +1,33 @@
+<section class="bg-white p-9 flex items-center flex-col my-6 rounded-lg">
+    <h1 class="text-lg font-medium">Cadastrar usuario</h1>
+    
+    <form class="flex flex-col" [formGroup]="applyForm" (submit)="submitUser()">
+        
+        <div class="flex flex-col py-4">
+            <label class="text-sm" for="name">name</label>
+            <input 
+                class="text-red-600 border-solid border-red-500 border-2 rounded-lg p-2 px-4 outline-none focus:shadow-red-400 focus:shadow-4sm transition-all"
+                type="text" 
+                name="name" 
+                id="name" 
+                placeholder="name" 
+                formControlName="name">
+        </div>
+
+        <div class="flex flex-col py-4">
+            <label class=" text-sm" for="birthday">birthday</label>
+            <input 
+                class="text-red-600 border-solid border-red-500 border-2 rounded-lg p-2 px-4 outline-none focus:shadow-red-400 focus:shadow-4sm transition-all"
+                type="date" 
+                name="birthday" 
+                id="birthday" 
+                placeholder="birthday" 
+                formControlName="birthday">
+        </div>
+        
+
+        <button 
+            class="bg-red-500 rounded-lg p-1 text-white font-medium hover:bg-red-800 transition-all"
+            type="submit" >CRIAR</button>
+    </form>
+</section>

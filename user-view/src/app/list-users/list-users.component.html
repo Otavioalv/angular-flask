@@ -1,0 +1,44 @@
+<section id="user-list" class=" flex flex-col w-screen items-center">
+    
+    <div>
+        <h1 class="text-white text-2xl">Lista de usuarios</h1>
+    </div>
+    
+    <div
+        class="bg-white my-3 flex flex-col p-6 rounded-md min-w-80" 
+        *ngFor="let user of usersList" 
+        id="us-{{user.id}}">
+
+        <ng-container *ngIf="user.id !== editingUserId">
+            <div class="flex flex-col">
+                <ul>
+                    <li class="flex justify-between">
+                        <h3>Name: </h3> <span class="text-red-500 font-medium">{{user.name}}</span>
+                    </li>
+                    <li class="flex justify-between">
+                        <h3>Id: </h3> <span class="text-red-500 font-medium">{{user.id}}</span>
+                    </li>
+                    <li class="flex justify-between">
+                        <h3>Birthday: </h3> <span class="text-red-500 font-medium">{{user.birthday}}</span>
+                    </li>
+                </ul>
+            </div>
+            
+
+            <div class="my-4 flex justify-between">
+                <button 
+                    class="bg-blue-500 w-1/4 py-1 rounded-md text-white hover:bg-blue-800 transition-all"
+                    (click)="editUser(user.id)" >Edit</button>
+                <button 
+                    class="bg-red-500 w-1/4 py-1 rounded-md text-white hover:bg-red-800 transition-all"
+                    (click)="deleteUser(user.id)">Delete</button>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="user.id === editingUserId">
+            <button (click)="editUser(user.id)" class="text-red-600 border-solid border-blue-500 border-2 rounded-md w-8 my-2 hover:bg-slate-300 transition-all">X</button>
+            <app-edit-user [userList]="user"/> 
+        </ng-container>
+        
+    </div>
+</section>
