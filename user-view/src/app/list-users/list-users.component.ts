@@ -14,6 +14,8 @@ export class ListUsersComponent implements OnInit{
   editingUserId: number | null = null;
   bttClick:boolean = false;
 
+  deleteUserPopUp:boolean = false;
+
   constructor() {
     this.userService.getList$
       .subscribe(val => {
@@ -44,8 +46,17 @@ export class ListUsersComponent implements OnInit{
       this.editingUserId = id;
   }
 
-  async deleteUser(id:number = -1) {
+
+  popUpDelete() {
+    this.deleteUserPopUp = this.deleteUserPopUp ? false: true;
+  }
+
+  deleteUser(id:number = -1) {
+    console.log(id);
+
     this.userService.deleteUser(id)
       .subscribe(res => console.log(res)); 
+    
+      this.popUpDelete();
   }
 }

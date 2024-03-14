@@ -8,28 +8,22 @@ import { BehaviorSubject, Subject } from 'rxjs';
 export class MessageService {
   private message:ResponseInterface[] = [];
   
-  public getMessage$ = new BehaviorSubject<boolean>(false);
+  public getMessage$ = new Subject<ResponseInterface[]>();
 
   constructor() { }
-
-  get getMessage(): ResponseInterface[] {
-    return this.message;
-  }
 
   addMessage(msg: ResponseInterface) {
     
     this.message.push(msg);
-    
-    this.showMessageTime(this.message);
 
-    this.getMessage$.next(true);
+    this.showMessageTime(this.message);
   }
 
   showMessageTime(message: ResponseInterface[]) {
     setTimeout(() => {
-        message.pop();
-    }, 1000);
+        this.message.pop();
+    }, 5000);
     
-    this.getMessage$.next(true);
+    this.getMessage$.next(this.message);
   }
 }

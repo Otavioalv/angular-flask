@@ -31,8 +31,10 @@
                     (click)="editUser(user.id)" >Edit</button>
                 <button 
                     class="bg-red-500 w-1/4 py-1 rounded-md text-white hover:bg-red-800 transition-all"
-                    (click)="deleteUser(user.id)">Delete</button>
+                    (click)="popUpDelete()">Delete</button>
             </div>
+            
+            <app-pop-up-delete *ngIf="deleteUserPopUp" [opcTrue]="deleteUser.bind(this, user.id)" [opcFalse]="popUpDelete.bind(this)"/>
         </ng-container>
 
         <ng-container *ngIf="user.id === editingUserId">

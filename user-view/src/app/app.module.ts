@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { LoaderComponent } from './loader/loader.component';
 import { MessageComponent } from './message/message.component';
+import { PopUpDeleteComponent } from './pop-up-delete/pop-up-delete.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MessageComponent } from './message/message.component';
     EditUserComponent,
     LoaderComponent,
     MessageComponent,
+    PopUpDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { MessageComponent } from './message/message.component';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   bootstrap: [AppComponent]
 })

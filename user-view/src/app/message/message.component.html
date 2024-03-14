@@ -1,4 +1,36 @@
-<div class="text-white">
-    <p>{{message}}</p>
-    <p>messagem...</p>
+<!-- <div class="absolute text-white" *ngFor="let msg of message">
+    <p>{{msg.message}}</p>
+    menssagem
+</div> -->
+
+
+<!-- 
+
+
+
+        if(this.message[this.message.length - 1].type === "success") {
+          this.bg = "bg-green-300";
+        }
+        else if(this.message[this.message.length - 1].type === "error") {
+          this.bg = "bg-red-300";
+        } else {
+          this.bg = "bg-yellow-200";
+        }
+
+ -->
+
+
+<div class="fixed left-[90%] bottom-[95%] translate-y-full -translate-x-full">    
+    <div class="my-3 rounded-lg" *ngFor="let msg of message">
+        <p class="
+            min-w-40 text-center font-medium 
+            p-4 rounded-lg 
+            border-2
+            {{msg.type === 'success' ? 'bg-green-300/50 text-green-400 border-green-400' : ''}}
+            {{msg.type === 'error' ? 'bg-red-300/50 text-red-500 border-red-500' : ''}}
+            {{msg.type === 'alert' ? 'bg-yellow-200/50 text-yellow-300 border-yellow-300' : ''}}
+            ">
+            {{msg.message}}
+        </p>
+    </div>
 </div>

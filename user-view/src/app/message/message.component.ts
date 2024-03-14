@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MessageService } from './message.service';
 import { ResponseInterface } from '../responseInterface';
 
@@ -8,17 +8,13 @@ import { ResponseInterface } from '../responseInterface';
   styleUrl: './message.component.css'
 })
 export class MessageComponent {
-  messageService: MessageService = new MessageService();
+  messageService: MessageService = inject(MessageService);
   message: ResponseInterface[] = [];
 
   constructor(){
     this.messageService.getMessage$
-      .subscribe(msg => {
-        this.test(msg)
+      .subscribe((msg:ResponseInterface[]) => {
+        this.message = msg
       })
-  }
-
-  test(msg: ResponseInterface[]) {
-    console.log(msg);
   }
 }

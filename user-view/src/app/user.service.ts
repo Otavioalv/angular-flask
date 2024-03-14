@@ -34,9 +34,7 @@ export class UsersService {
     return this.http.post<ResponseInterface>(url, datas, this.httpOptions)
       .pipe(
         tap(_ => {
-          console.log("New User");
           this.getList$.next(true);
-
           this.messageService.addMessage({message: "Ussuario ciado com sucesso", type: 'success'});
         }),
         catchError(this.handleError<ResponseInterface>())
@@ -52,9 +50,7 @@ export class UsersService {
       return this.http.get<UserInterface[]>(url)
       .pipe(
         tap(_ => {
-          console.log("List User"),
           this.getList$.next(false);
-
           this.messageService.addMessage({message:"Usuarios listados", type: 'success'});
         }),
         catchError(this.handleError<UserInterface[]>([])),
@@ -71,7 +67,6 @@ export class UsersService {
     return this.http.post<UserInterface[]>(url, id, this.httpOptions)
       .pipe(
         tap(_ => {
-          console.log("Find");
           this.messageService.addMessage({message: "Usuario encontrado", type: 'success'});
         }),
         catchError(this.handleError<UserInterface[]>([]))
@@ -87,9 +82,7 @@ export class UsersService {
     return this.http.put<ResponseInterface>(url, datas, this.httpOptions)
       .pipe(
         tap(_ => {
-          console.log('Edit');
           this.getList$.next(true);
-
           this.messageService.addMessage({message: "Usuario atualizado com sucesso", type: 'success'});
         }),
         catchError(this.handleError<ResponseInterface>())
@@ -105,19 +98,25 @@ export class UsersService {
     return this.http.delete<ResponseInterface>(url, this.httpOptions)
       .pipe(
         tap(_ => {
-          console.log("Delete");
           this.getList$.next(true);
-
           this.messageService.addMessage({message: "Usuario deletado com sucesso", type: 'success'});
         }),
         catchError(this.handleError<ResponseInterface>())
       );
   }
 
-
   private handleError<T>(result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error);
+      
+      console.log(error);
+
+      this.messageService.addMessage(
+        {
+          message: error.statusText,
+          type: "error"
+        }
+      );
+      
       this.loaderService.hide();
       return of(result as T);
     }
