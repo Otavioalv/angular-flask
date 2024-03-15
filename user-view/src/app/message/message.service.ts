@@ -5,6 +5,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MessageService {
   private message:ResponseInterface[] = [];
   
@@ -16,13 +17,15 @@ export class MessageService {
     
     this.message.push(msg);
 
+    // this.getMessage$.next(this.message);
+
     this.showMessageTime(this.message);
   }
 
   showMessageTime(message: ResponseInterface[]) {
     setTimeout(() => {
-        this.message.pop();
-    }, 5000);
+        this.message.shift();
+    }, 6000);
     
     this.getMessage$.next(this.message);
   }

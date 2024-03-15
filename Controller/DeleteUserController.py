@@ -7,7 +7,7 @@ from time import sleep;
 class DeleteUserController:
     def execute(id):
         
-        sleep(1);
+        sleep(2);
         
         message:str;
         

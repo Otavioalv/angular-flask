@@ -7,7 +7,7 @@ from time import sleep;
 class UpdateUserController:
     def execute(id, response):
         
-        sleep(2);
+        sleep(4);
         
         message:str;
         

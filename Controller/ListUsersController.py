@@ -7,7 +7,7 @@ from time import sleep;
 class ListUsersController:
     def execute():
         
-        # sleep(1);
+        sleep(1);
         
         try: 
             sql = "SELECT id, name, birthday from user";

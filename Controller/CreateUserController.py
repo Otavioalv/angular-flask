@@ -5,7 +5,7 @@ from time import sleep;
 
 class CreateUserController:
     def execute(valuesResponse):
-        sleep(1);
+        sleep(3);
         
         try:
             birthday, name = valuesResponse["birthday"], valuesResponse["name"];

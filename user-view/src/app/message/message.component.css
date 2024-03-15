@@ -1,3 +1,24 @@
-.test {
-    
+.message-container {
+    animation: hide-message 1s ease-in-out forwards;
+    animation-delay: 5s;
+}
+
+.message-box:before {   
+    animation: load-message 5s both cubic-bezier(0.32, 0.20, 0.93, 0.40);
+}   
+
+@keyframes hide-message {
+    from {
+        opacity: 100%;
+    } to {
+        opacity: 0;
+    }
+}
+
+@keyframes load-message {
+    from {
+        width: 0%;
+    } to {
+        width: 100%;
+    }
 }
